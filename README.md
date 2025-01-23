@@ -1,8 +1,18 @@
-# React + Vite
+# Creating a course selling app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ - Initialize a new Node.js project
+ - Add Express, jsonwebtoken, mongoose to it as a dependency
+ - Create index.js
+ - Add route skeleton for user login, signup, purchase a course, sees all courses, sees the purchased courses course
+ - Add routes for admin login, admin signup, create a course, delete a course, add course content.
+ - Define the schema for User, Admin, Course, Purchase
+ - Add a database (mongodb), use dotenv to store the database connection string
+ - Add middlewares for user and admin auth
+ - Complete the routes for user login, signup, purchase a course, see course (Extra points - Use express routing to better structure your routes)
+ - Create the frontend
+ <!-- - Good to haves -->
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<!-- Use cookies instead of JWT for auth
+Add a rate limiting middleware
+Frontend in ejs (low pri)
+Frontend in React -->
