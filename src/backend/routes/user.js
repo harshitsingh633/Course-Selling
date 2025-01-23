@@ -1,7 +1,7 @@
 
 import { Router } from 'express';
 
-let userRouter = Router();
+const userRouter = Router();
 
     userRouter.post('/signup', (req , res)=>{
         const email = req.body.email;

@@ -1,7 +1,7 @@
 
 import { Router } from 'express';
 
-let courseRouter = Router();
+const courseRouter = Router();
 
     courseRouter.post('/purchase',(req ,res) => {
         res.json({
