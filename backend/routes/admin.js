@@ -11,7 +11,8 @@ const adminRouter = Router();
         })
     })
 
-    adminRouter.post('/signin', (req , res) => {
+    adminRouter.post('/signin',(req , res) => {
+        
         res.json({
             message: "signup endpoint"
         })
@@ -27,7 +28,7 @@ const adminRouter = Router();
             message: "Course"
         })
     })
-    adminRouter.get('/course/bulk',(req , res) => {
+    adminRouter.get('/course/bulk',(req , res) => { 
         res.json({
             message:"Harkirat Cohort 3"
         })
