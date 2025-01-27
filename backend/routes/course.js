@@ -1,6 +1,6 @@
 
 import { Router } from 'express';
-import courseModel from '../db.js';
+import { courseModel } from '../db.js';
 
 const courseRouter = Router();
 

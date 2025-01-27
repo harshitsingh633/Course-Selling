@@ -1,7 +1,7 @@
 
 import { Router } from 'express';
 import jwt from 'jsonwebtoken';
-import userModel from '../db.js';
+import  { userModel }  from '../db.js';
 const JWT_User_Password = `${process.env.JWT_User_Password}`;
 
 
@@ -10,7 +10,7 @@ const userRouter = Router();
     userRouter.post('/signup',async (req , res)=>{
         const { email, password, firstName, lastName } = req.body;//Todo adding zod validation
         //Todo : hash the password so plaintext pw is not stored in DB
-
+      
             await userModel.create({
             email: email,
             password : password,
@@ -36,6 +36,7 @@ const userRouter = Router();
                 id : user._id
             },JWT_User_Password)
             
+            //Do Cookie based logic
             res.json({
                 token : token
             })
