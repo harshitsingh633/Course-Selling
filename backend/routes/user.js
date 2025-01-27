@@ -1,7 +1,9 @@
-
+import * as dotenv from 'dotenv';
+dotenv.config();
 import { Router } from 'express';
 import jwt from 'jsonwebtoken';
 import  { userModel }  from '../db.js';
+import userMiddleware from '../middlewares/user.js';
 const JWT_User_Password = `${process.env.JWT_User_Password}`;
 
 
@@ -48,7 +50,7 @@ const userRouter = Router();
         }
         
     })
-    userRouter.get('/purchases', (req , res) => {
+    userRouter.get('/purchases',userMiddleware, (req , res) => {
         res.json({
             message: "signup endpoint"
         })

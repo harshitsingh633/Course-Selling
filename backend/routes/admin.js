@@ -1,6 +1,9 @@
 import { Router } from "express";
-import {adminModel} from '../db.js';
+import {adminModel, courseModel} from '../db.js';
 import jwt from 'jsonwebtoken';
+import adminMiddleware from "../middlewares/admin.js";
+import * as dotenv from 'dotenv';
+dotenv.config();
 const JWT_Admin_Password = `${process.env.JWT_Admin_Password}`;
 const adminRouter = Router();
 
@@ -46,19 +49,50 @@ const adminRouter = Router();
                
     })
 
-    adminRouter.post('/course', (req , res) => {
+    adminRouter.post('/course',adminMiddleware,async (req , res) => {
+        const adminId = req.adminId;
+        const {title , description , imageUrl, price, courseId} = req.body;
+        
+        const course = await courseModel.create({
+            title: title,
+            description: description,
+            imageUrl : imageUrl,
+            price : price,
+            creatorId : adminId
+        })
+        
         res.json({
-            message : "Created a new Course"
+            message : "Course Created",
+            courseId : course._id
         })
     })
-    adminRouter.put('/course' , (req ,res) => {
+    adminRouter.put('/course' , adminMiddleware,async(req ,res) => {
+        const adminId = req.adminId;
+        const {title , description , imageUrl, price ,courseId} = req.body;
+        
+        const course = await courseModel.updateOne({
+            _id: courseId,
+            creatorId : adminId
+        },
+        {
+            title: title,
+            description: description,
+            imageUrl : imageUrl,
+            price : price
+    })
+        
         res.json({
-            message: "Course"
+            message : "Course updated",
+            courseId : course._id
         })
     })
-    adminRouter.get('/course/bulk',(req , res) => { 
+    adminRouter.get('/course/bulk',adminMiddleware, async(req , res) => { 
+        const courses = await courseModel.find({
+            creatorId : adminId
+        });
         res.json({
-            message:"Harkirat Cohort 3"
+            message:"Harkirat Cohort 3",
+            courses
         })
     })
 

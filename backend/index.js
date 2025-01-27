@@ -3,7 +3,8 @@ import userRouter from './routes/user.js';
 import courseRouter from './routes/course.js';
 import adminRouter from './routes/admin.js';
 import mongoose from 'mongoose';
-
+import * as dotenv from 'dotenv';
+dotenv.config();
 const app = express();
 app.use(express.json());
 
