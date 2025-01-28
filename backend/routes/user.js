@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 import { Router } from 'express';
 import jwt from 'jsonwebtoken';
-import  { userModel }  from '../db.js';
+import  { purchaseModel, userModel }  from '../db.js';
 import userMiddleware from '../middlewares/user.js';
 const JWT_User_Password = `${process.env.JWT_User_Password}`;
 
@@ -50,9 +50,27 @@ const userRouter = Router();
         }
         
     })
-    userRouter.get('/purchases',userMiddleware, (req , res) => {
+    userRouter.get('/purchases',userMiddleware, async(req , res) => {
+        
+        const userId = req.body.userId;
+
+        const purchases = await purchaseModel.find({
+            userId,
+        })
+
+        let purchasedCourseIds = [];
+
+        for (let i = 0; i < purachases.length; i++) {
+            purchasedCourseIds.push(purchases[i].courseId)
+            
+        }
+
+        const coursesData = await courseModel.find({
+            _id : { $in : purchasedCourseIds }
+        })
         res.json({
-            message: "signup endpoint"
+            purchases,
+            coursesData
         })
     })
 
