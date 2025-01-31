@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv';
 dotenv.config();
 import mongoose from "mongoose";
-
+import z from "zod";
 
 const Schema =  mongoose.Schema,
     ObjectId = Schema.ObjectId;

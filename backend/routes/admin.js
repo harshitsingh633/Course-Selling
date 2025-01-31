@@ -8,6 +8,7 @@ const JWT_Admin_Password = `${process.env.JWT_Admin_Password}`;
 const adminRouter = Router();
 
     adminRouter.post('/signup', async(req , res)=>{
+        try{
        const { email, password, firstName, lastName } = req.body;//Todo adding zod validation
                //Todo : hash the password so plaintext pw is not stored in DB
              
@@ -19,7 +20,12 @@ const adminRouter = Router();
                })
         res.json({
             message: "signup successfull"
-        })
+        })}
+        catch(e){
+            res.status(500).json({
+                message:"Error while signing up"
+            })
+        }
     })
 
     adminRouter.post('/signin', async(req , res) => {

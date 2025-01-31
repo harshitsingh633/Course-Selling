@@ -10,6 +10,8 @@ const JWT_User_Password = `${process.env.JWT_User_Password}`;
 const userRouter = Router();
 
     userRouter.post('/signup',async (req , res)=>{
+
+        try{
         const { email, password, firstName, lastName } = req.body;//Todo adding zod validation
         //Todo : hash the password so plaintext pw is not stored in DB
       
@@ -21,7 +23,12 @@ const userRouter = Router();
         })
             res.json({
             message: "Signup Succeded"
-         })
+         })}
+         catch(e){
+            res.status(500).json({
+                message:"Error while signing up"
+            })
+         }
     })
     
     userRouter.post('/signin', async (req , res) => {
@@ -31,7 +38,7 @@ const userRouter = Router();
 
         const user = await userModel.findOne({
             email : email,
-            password : password //next step use the bycript library
+            password : password //next step use the bcrypt library
         })
         if(user){
             const token = jwt.sign({
