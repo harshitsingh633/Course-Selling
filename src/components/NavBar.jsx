@@ -2,7 +2,7 @@ import React from "react";
 
 export function NavBar() {
   return (
-    <div className="bg-[#FFFFFF] items-center flex w-full h-14 px-7">
+    <div className="bg-[#FFFFFF] items-center flex w-full h-14 px-7 fixed">
       <img
         src="https://appx-wsb-gcp-mcdn.akamai.net.in/subject/2023-01-17-0.17044360120951185.jpg"
         alt="100xDevs"

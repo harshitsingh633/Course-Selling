@@ -1,5 +1,5 @@
 import React from "react";
-
+import { motion } from "motion/react";
 function Hero() {
   return (
     <div className="w-full h-full flex ">
