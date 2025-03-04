@@ -1,4 +1,5 @@
 import React from "react";
+import Hero from "./Hero";
 
 export function NavBar() {
   return (
@@ -20,10 +21,12 @@ export function NavBar() {
         </div>
       </div>
 
-      <button className="rounded-lg bg-blue-500 px-4 py-2 text-white font-semibold mx-2 hover:bg-blue-600">
+      <button className="rounded-lg bg-gradient-to-r from-purple-500 to-blue-500  px-6 py-3 text-white font-semibold mx-2 hover:from-purple-600
+        hover:to-blue-600 focus:outline-none focus-ring focus:ring-purple-300 active:bg-blue-700 shadow-md transition duration-150 ease-in-out transform hover:scale-95">
         Sign Up
       </button>
-      <button className="rounded-lg bg-blue-500 px-4 py-2 text-white font-semibold hover:bg-blue-600">
+      <button className="rounded-lg bg-gradient-to-r from-purple-500 to-blue-500  px-6 py-3 text-white font-semibold mx-2 hover:from-purple-600
+        hover:to-blue-600 focus:outline-none focus-ring focus:ring-purple-300 active:bg-blue-700 shadow-md transition duration-150 ease-in-out transform hover:scale-95">
         Login
       </button>
     </div>

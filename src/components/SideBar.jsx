@@ -12,7 +12,9 @@ function SideBar() {
           <button className="pl-7 pt-6 text-lg">Courses</button>
         </div>
       </div>
-      <Hero />
+      <div className="flex items-center justify-center h-screen bg-gray-100">
+    </div>
+   <Hero/>
     </div>
   );
 }

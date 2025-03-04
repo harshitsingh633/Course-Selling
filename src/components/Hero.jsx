@@ -1,27 +1,38 @@
-import React from "react";
-import { motion } from "motion/react";
-function Hero() {
-  return (
-    <div className="w-full h-full flex ">
-      <div className="w-full h-full">
-        <img
-          src="https://appxcontent.kaxa.in/subject/2024-07-07-0.9522250790418232.png"
-          alt=""
-          className="w-[80%] pt-10 pl-5"
-        />
-        <img
-          src="https://appxcontent.kaxa.in/subject/2024-07-05-0.8025085370209641.jpeg"
-          alt=""
-          className="w-[80%] pt-10 pl-5"
-        />
-        <img
-          src="https://appxcontent.kaxa.in/subject/2024-07-05-0.3715048534115637.jpeg"
-          alt=""
-          className="w-[80%] pt-10 pl-5"
-        />
-      </div>
-    </div>
-  );
-}
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
-export default Hero;
+const images = [
+  "https://appxcontent.kaxa.in/subject/2024-07-07-0.9522250790418232.png",
+  "https://appxcontent.kaxa.in/subject/2024-07-05-0.8025085370209641.jpeg",
+  "https://appxcontent.kaxa.in/subject/2024-07-05-0.3715048534115637.jpeg"
+];
+
+const ImageSlider = () => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []); // Added dependency array
+
+  return (
+    <div className=" ">
+    <div className="relative w-full max-w-3xl mx-auto rounded-lg shadow-lg top-20">
+      <motion.img
+        key={index}
+        src={images[index]} // Use the dynamic index
+        alt="slider"
+        className="w-full h-full object-cover"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.8 }}
+      />
+    </div></div>
+  );
+};
+
+export default ImageSlider; 
