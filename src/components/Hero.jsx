@@ -19,13 +19,13 @@ const ImageSlider = () => {
   }, []); // Added dependency array
 
   return (
-    <div className=" ">
+    <div className="w-full h-full">
     <div className="relative w-full max-w-3xl mx-auto rounded-lg shadow-lg top-20">
       <motion.img
         key={index}
         src={images[index]} // Use the dynamic index
         alt="slider"
-        className="w-full h-full object-cover"
+        className="w-full h-full rounded-lg object-cover cursor-pointer"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
