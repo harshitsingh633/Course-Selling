@@ -1,8 +1,12 @@
 import React from "react";
 import Hero from "./Hero";
+import { login } from "./login";
+import { BrowserRouter, Routes,Router } from "react-router-dom";
 
 export function NavBar() {
   return (
+    <BrowserRouter>
+    <Routes>
     <div className="bg-[#FFFFFF] items-center flex w-full h-14 px-7 fixed">
       <img
         src="https://appx-wsb-gcp-mcdn.akamai.net.in/subject/2023-01-17-0.17044360120951185.jpg"
@@ -22,13 +26,15 @@ export function NavBar() {
       </div>
 
       <button className="rounded-lg bg-gradient-to-r from-purple-500 to-blue-500  px-6 py-3 text-white font-semibold mx-2 hover:from-purple-600
-        hover:to-blue-600 focus:outline-none focus-ring focus:ring-purple-300 active:bg-blue-700 shadow-md transition duration-150 ease-in-out transform hover:scale-95">
+        hover:to-blue-600 focus:outline-none focus-ring focus:ring-purple-300 active:bg-blue-700 shadow-md transition duration-150 ease-in-out transform hover:scale-95" >
         Sign Up
       </button>
       <button className="rounded-lg bg-gradient-to-r from-purple-500 to-blue-500  px-6 py-3 text-white font-semibold mx-2 hover:from-purple-600
-        hover:to-blue-600 focus:outline-none focus-ring focus:ring-purple-300 active:bg-blue-700 shadow-md transition duration-150 ease-in-out transform hover:scale-95">
+        hover:to-blue-600 focus:outline-none focus-ring focus:ring-purple-300 active:bg-blue-700 shadow-md transition duration-150 ease-in-out transform hover:scale-95" onClick={() => handleClick('/login')}>
         Login
       </button>
     </div>
+    </Routes>
+    </BrowserRouter>
   );
 }
