@@ -25,7 +25,7 @@ const Login = () => {
             value={password} 
             className='mt-2 w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500'/>
           </div>
-          <button className='w-full py-2 bg-indigo-200 text-white rounded-lg hover:bg-indigo focus:outline-none focus:ring-2 focus:ring-indigo-500' type='submit'>Login</button>
+          <button className='w-full py-2 bg-indigo-200 text-white rounded-lg hover:bg-indigo focus:outline-none focus:ring-2 focus:ring-indigo-500' type='submit'>SignUp</button>
         </form>
       </div>
        
