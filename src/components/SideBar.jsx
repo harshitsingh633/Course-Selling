@@ -1,5 +1,5 @@
 import React from "react";
-import Hero from "./Hero";
+import Hero from "./ImageSlider";
 
 function SideBar() {
   return (
@@ -18,7 +18,6 @@ function SideBar() {
           <button className="pl-7 pt-6 text-lg">Logout</button>
         </div>
       </div>
-   <Hero/>
     </div>
   );
 }

@@ -1,17 +1,16 @@
-import { NavBar } from "./components/NavBar";
+// App.js
 import React from "react";
-import SideBar from "./components/SideBar";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Login from "./components/Login"
 function App() {
   return (
-
     <BrowserRouter>
-    <Routes>
-    <div className="w-full h-screen bg-[#FFFFFF]">
-      <NavBar />
-      <SideBar />
-    </div>
-    </Routes>
+      <Routes>
+        <Route path="/login" element={<Home />} />
+        <Route path="/signup" element={<Login />} />
+        {/* Define login, signup, etc. if needed */}
+      </Routes>
     </BrowserRouter>
   );
 }

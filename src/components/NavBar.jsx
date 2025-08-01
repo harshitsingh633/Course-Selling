@@ -1,12 +1,9 @@
 import React from "react";
-import Hero from "./Hero";
-import { login } from "./login";
+import Hero from "./ImageSlider";
 import { BrowserRouter, Routes,Router } from "react-router-dom";
 
 export function NavBar() {
   return (
-    <BrowserRouter>
-    <Routes>
     <div className="bg-[#FFFFFF] items-center flex w-full h-14 px-7 fixed">
       <img
         src="https://appx-wsb-gcp-mcdn.akamai.net.in/subject/2023-01-17-0.17044360120951185.jpg"
@@ -34,7 +31,5 @@ export function NavBar() {
         Login
       </button>
     </div>
-    </Routes>
-    </BrowserRouter>
   );
 }
